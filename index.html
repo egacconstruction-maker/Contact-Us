@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>EGAC Construction | Future Of Growth And Development</title>
+<meta name="description" content="EGAC Construction — official digital profile. Portfolio, contact, and social channels.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="EGAC Construction">
+<meta property="og:description" content="Future Of Growth And Development">
+<meta property="og:image" content="./assets/logo-cropped.png">
+
+<link rel="icon" href="./assets/logo-cropped.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:        #0b1c30;
+    --navy-deep:   #071320;
+    --navy-raised: #12283f;
+    --navy-line:   rgba(196,163,101,0.18);
+    --gold:        #c1892c;
+    --gold-soft:   #e3b563;
+    --gold-dim:    rgba(193,137,44,0.35);
+    --ink-100:     #ffffff;
+    --ink-70:      #c7d0dc;
+    --ink-45:      #7f8ea3;
+    --radius-lg:   22px;
+    --radius-sm:   14px;
+    --ease:        cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--navy-deep);
+    color: var(--ink-100);
+    font-family:'Manrope', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+   min-height:auto;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  ::selection{ background:var(--gold); color:var(--navy-deep); }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--gold-soft);
+    outline-offset: 4px;
+    border-radius: 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* ============ BACKGROUND ============ */
+  .scene{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    overflow:hidden;
+  }
+  .scene__img{
+    position:absolute;
+    inset:-4% -4% -4% -4%;
+    width:108%;
+    height:108%;
+    object-fit:cover;
+    object-position: center 30%;
+    filter: saturate(0.92) brightness(0.62);
+    animation: driftScene 42s ease-in-out infinite alternate;
+  }
+  @keyframes driftScene{
+    0%   { transform: scale(1.06) translate3d(0,0,0); }
+    100% { transform: scale(1.14) translate3d(-1%,-1%,0); }
+  }
+  .scene__overlay{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(120% 70% at 50% 0%, rgba(11,28,48,0.15) 0%, rgba(11,28,48,0.78) 46%, var(--navy-deep) 88%),
+      linear-gradient(180deg, rgba(7,19,32,0.55) 0%, rgba(7,19,32,0.2) 22%, rgba(7,19,32,0.85) 78%, var(--navy-deep) 100%);
+  }
+  .scene__vignette{
+    position:absolute; inset:0;
+    box-shadow: inset 0 0 22vw 4vw rgba(4,11,20,0.55);
+    pointer-events:none;
+  }
+
+  /* ============ LAYOUT SHELL ============ */
+.wrap{
+  position:relative;
+  z-index:1;
+  max-width:640px;
+  margin:-170px auto 0;
+  padding:44px 20px 20px;
+  min-height:calc(100vh + 170px);
+  display:flex;
+  flex-direction:column;
+}
+
+  /* ============ TOP / IDENTITY ============ */
+ .identity{
+  text-align:center;
+  padding-top: 0;
+  transform: translateY(-40px);
+}
+
+  .identity__logo{
+    width: min(500px, 80vw);
+    margin: 0 auto;
+    opacity:0;
+    animation: riseIn .9s var(--ease) .1s forwards;
+  }
+
+.identity__name{
+    margin-top: 5px;
+    position: relative;
+    top: 0;
+    font-family:'Syne', sans-serif;
+    font-weight:500;
+    font-size: clamp(24px, 3vw, 34px);
+    letter-spacing: 0;
+    color: var(--ink-100);
+    opacity:0;
+    transform: translateY(-20px);
+    animation: riseIn .9s var(--ease) .22s forwards;
+}
+  .identity__tagline{
+    margin-top: 8px;
+    font-size: clamp(12.5px, 3.2vw, 14px);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    font-weight:600;
+    opacity:0;
+    animation: riseIn .9s var(--ease) .32s forwards;
+  }
+
+  .identity__rule{
+    width: 46px;
+    height: 2px;
+    margin: 18px auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  display: none;
+    animation: riseIn .9s var(--ease) .4s forwards;
+  }
+
+  @keyframes riseIn{
+    from{ opacity:0; transform: translateY(14px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  /* ============ CONTACT ICONS ============ */
+  .contact-row{
+    display:flex;
+    justify-content:center;
+    gap: 30px;
+    margin-top: -135px;
+    opacity:0;
+    animation: riseIn .9s var(--ease) .5s forwards;
+  }
+
+  .contact-btn{
+    position:relative;
+    width: 54px;
+    height: 54px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(227,181,99,0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: transform .35s var(--ease), background .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .contact-btn svg{
+    width:22px; height:22px;
+    stroke: var(--ink-100);
+    transition: stroke .3s var(--ease), transform .45s var(--ease);
+  }
+  .contact-btn:hover,
+  .contact-btn:focus-visible{
+    transform: translateY(-4px);
+    background: rgba(193,137,44,0.16);
+    border-color: var(--gold);
+    box-shadow: 0 10px 26px rgba(193,137,44,0.22);
+  }
+  .contact-btn:hover svg{ stroke:var(--gold-soft); transform:scale(1.08); }
+  .contact-btn__label{
+    position:absolute;
+    bottom:-22px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:10px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color: var(--ink-45);
+    white-space:nowrap;
+  }
+
+  /* ============ LINK BUTTONS ============ */
+  .links{
+    margin-top: 20px;
+    display:flex;
+    flex-direction:column;
+    gap: 14px;
+  }
+
+  .linkcard{
+    --delay: 0s;
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    width:100%;
+    padding: 16px 18px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(155deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
+    border: 1px solid rgba(227,181,99,0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow:hidden;
+    cursor:pointer;
+    opacity:0;
+    animation: riseIn .8s var(--ease) forwards;
+    animation-delay: var(--delay);
+    transition: transform .4s var(--ease), border-color .4s var(--ease), background .4s var(--ease), box-shadow .4s var(--ease);
+  }
+
+  .linkcard::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background: linear-gradient(115deg, transparent 40%, rgba(227,181,99,0.10) 50%, transparent 60%);
+    transform: translateX(-120%);
+    transition: transform .7s var(--ease);
+    pointer-events:none;
+  }
+
+  .linkcard:hover,
+  .linkcard:focus-visible{
+    transform: translateY(-3px) scale(1.008);
+    border-color: rgba(227,181,99,0.55);
+    background: linear-gradient(155deg, rgba(193,137,44,0.14), rgba(255,255,255,0.03));
+    box-shadow: 0 16px 34px rgba(4,10,18,0.45), 0 0 0 1px rgba(227,181,99,0.08);
+  }
+  .linkcard:hover::before{ transform: translateX(120%); }
+
+  .linkcard:active{ transform: translateY(-1px) scale(0.995); }
+
+  .linkcard__icon{
+    flex:none;
+    width: 48px;
+    height:48px;
+    border-radius: 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(193,137,44,0.12);
+    border:1px solid rgba(227,181,99,0.3);
+    transition: background .4s var(--ease), transform .4s var(--ease), border-color .4s var(--ease);
+  }
+  .linkcard:hover .linkcard__icon{
+    background: rgba(193,137,44,0.28);
+    border-color: var(--gold);
+    transform: rotate(-6deg) scale(1.05);
+  }
+  .linkcard__icon svg{
+    width:23px; height:23px;
+    stroke: var(--gold-soft);
+    fill:none;
+  }
+
+  .linkcard__text{
+    flex:1;
+    min-width:0;
+    text-align:left;
+  }
+  .linkcard__title{
+    font-family:'Syne', sans-serif;
+    font-weight:700;
+    font-size: 16.5px;
+    letter-spacing: 0.03em;
+    color: var(--ink-100);
+  }
+  .linkcard__sub{
+    margin-top:3px;
+    font-size: 12.5px;
+    color: var(--ink-45);
+    font-weight:500;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .linkcard__end{
+    flex:none;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color: var(--ink-45);
+  }
+  .linkcard__dots{
+    width:18px; height:18px;
+    stroke: var(--ink-45);
+    opacity:.8;
+  }
+  .linkcard__arrow{
+    width:16px; height:16px;
+    stroke: var(--gold-soft);
+    transition: transform .4s var(--ease);
+  }
+  .linkcard:hover .linkcard__arrow{ transform: translateX(4px); }
+
+  /* ============ FOOTER ============ */
+  .footer{
+    margin-top: 0px;
+    padding-top: 22px;
+    text-align: center;
+    border-top: none;
+}
+  .footer__mark{
+    width:26px;
+    margin:0 auto 10px;
+   display:none;
+  }
+  .footer p{
+    font-size: 11.5px;
+    letter-spacing:.05em;
+    color: var(--ink-45);
+    line-height:1.7;
+  }
+  .footer strong{ color: var(--ink-70); font-weight:600; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (min-width: 560px){
+    .linkcard{ padding: 18px 22px; }
+    .linkcard__title{ font-size:17.5px; }
+  }
+
+  @media (max-width: 360px){
+    .contact-row{ gap:14px; }
+    .contact-btn{ width:50px; height:50px; }
+    .linkcard{ gap:12px; padding:14px 14px; }
+    .linkcard__icon{ width:42px; height:42px; }
+  }
+body {
+  transform: none;
+}
+.footer strong{
+  color: var(--ink-70);
+  font-weight:600;
+}
+
+
+/* === Luxury background pattern === */
+
+:root {
+  --pattern-color: #ffffff;
+  --pattern-opacity: 0.06;
+  --pattern-scale: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background-color: var(--pattern-color);
+  opacity: var(--pattern-opacity);
+
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+
+  -webkit-mask-size: calc(60px * var(--pattern-scale)) calc(104px * var(--pattern-scale));
+  mask-size: calc(60px * var(--pattern-scale)) calc(104px * var(--pattern-scale));
+
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104' viewBox='0 0 60 104'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M0 0L0 -13M0 0L-11.26 6.5M0 0L11.26 6.5M60 0L60 -13M60 0L48.74 6.5M60 0L71.26 6.5M0 104L0 91M0 104L-11.26 110.5M0 104L11.26 110.5M60 104L60 91M60 104L48.74 110.5M60 104L71.26 110.5M30 52L30 39M30 52L18.74 58.5M30 52L41.26 58.5'/%3E%3C/g%3E%3C/svg%3E");
+
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104' viewBox='0 0 60 104'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M0 0L0 -13M0 0L-11.26 6.5M0 0L11.26 6.5M60 0L60 -13M60 0L48.74 6.5M60 0L71.26 6.5M0 104L0 91M0 104L-11.26 110.5M0 104L11.26 110.5M60 104L60 91M60 104L48.74 110.5M60 104L71.26 110.5M30 52L30 39M30 52L18.74 58.5M30 52L41.26 58.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+</style>
+</head>
+<body>
+
+  <div class="scene" aria-hidden="true">
+    <img class="scene__img" src="./assets/bg-hero.jpg" alt="">
+    <div class="scene__overlay"></div>
+    <div class="scene__vignette"></div>
+  </div>
+
+  <main class="wrap">
+
+    <header class="identity">
+      <img class="identity__logo" src="./assets/logo-cropped.png" alt="EGAC Construction logo">
+      <div class="identity__rule"></div>
+
+      <nav class="contact-row" aria-label="Quick contact">
+        <a class="contact-btn" href="tel:+201040222086" aria-label="Call EGAC Construction">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+       <a class="contact-btn" href="https://wa.me/201040222086" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3.5a8.5 8.5 0 0 0-7.35 12.75L3.5 20.5l4.45-1.15A8.5 8.5 0 1 0 12 3.5Z"/>
+    <path d="M8.5 9.2c.2-.45.45-.5.75-.5h.5c.2 0 .4.05.55.4l.7 1.6c.1.25.1.45-.05.65l-.5.65c-.15.15-.2.35-.05.6.3.5 1.15 1.8 2.45 2.45.3.15.5.15.65-.05l.65-.75c.15-.2.35-.25.6-.15l1.55.75c.3.15.4.3.35.6-.1.55-.5 1.2-.95 1.45-.4.25-1.05.4-1.8.15-1.05-.35-2.35-1.1-3.65-2.4-1.3-1.3-2.1-2.65-2.4-3.65-.25-.8-.05-1.4.2-1.8Z"/>
+  </svg>
+</a>
+        <a class="contact-btn" href="mailto:info@egacconstruction.com" aria-label="Email EGAC Construction">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.4"/><path d="M3 6.5l9 6.2 9-6.2"/></svg>
+        </a>
+      </nav>
+    </header>
+
+    <section class="links" aria-label="Company links">
+
+      <a class="linkcard" style="--delay:.10s" href="./assets/EGAC-Company-Profile.pdf" target="_blank" rel="noopener">
+        <span class="linkcard__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9.5 13.2h1.2a1.3 1.3 0 0 1 0 2.6H9.5v2.4"/><path d="M9.5 18.2v-5"/></svg>
+        </span>
+        <span class="linkcard__text">
+          <span class="linkcard__title">COMPANY PROFILE</span>
+          <span class="linkcard__sub">Read our official profile — PDF</span>
+        </span>
+        <span class="linkcard__end">
+          <svg class="linkcard__dots" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+          <svg class="linkcard__arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a class="linkcard" style="--delay:.16s" href="https://web.facebook.com/profile.php?id=100092105110208" target="_blank" rel="noopener">
+        <span class="linkcard__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a5 5 0 0 0-5 5v3H6v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg>
+        </span>
+        <span class="linkcard__text">
+          <span class="linkcard__title">FACEBOOK</span>
+          <span class="linkcard__sub">Follow our page</span>
+        </span>
+        <span class="linkcard__end">
+          <svg class="linkcard__dots" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+          <svg class="linkcard__arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a class="linkcard" style="--delay:.22s" href="https://www.instagram.com/egacconstruction/" target="_blank" rel="noopener">
+        <span class="linkcard__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </span>
+        <span class="linkcard__text">
+          <span class="linkcard__title">INSTAGRAM</span>
+          <span class="linkcard__sub">See our latest projects</span>
+        </span>
+        <span class="linkcard__end">
+          <svg class="linkcard__dots" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+          <svg class="linkcard__arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a class="linkcard" style="--delay:.28s" href="https://www.youtube.com/@egacconstruction" target="_blank" rel="noopener">
+        <span class="linkcard__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12.2a29 29 0 0 0-.46-5.33 2.78 2.78 0 0 0-1.96-1.96A69.4 69.4 0 0 0 12 4.5a69.4 69.4 0 0 0-7.58.41A2.78 2.78 0 0 0 2.46 6.9 29 29 0 0 0 2 12.2a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.96 1.93A69.4 69.4 0 0 0 12 19.9a69.4 69.4 0 0 0 7.58-.44 2.78 2.78 0 0 0 1.96-1.93A29 29 0 0 0 22 12.2z"/><path d="M10 9.3l5 2.9-5 2.9z"/></svg>
+        </span>
+        <span class="linkcard__text">
+          <span class="linkcard__title">YOUTUBE</span>
+          <span class="linkcard__sub">Watch our work</span>
+        </span>
+        <span class="linkcard__end">
+          <svg class="linkcard__dots" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+          <svg class="linkcard__arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a class="linkcard" style="--delay:.34s" href="https://www.tiktok.com/@egacconstruction" target="_blank" rel="noopener">
+        <span class="linkcard__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.2a3.3 3.3 0 1 1-2.6-3.23"/><path d="M14 3.4a5.6 5.6 0 0 0 5 4.7"/></svg>
+        </span>
+        <span class="linkcard__text">
+          <span class="linkcard__title">TIKTOK</span>
+          <span class="linkcard__sub">Behind the scenes</span>
+        </span>
+        <span class="linkcard__end">
+          <svg class="linkcard__dots" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+          <svg class="linkcard__arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+      <a class="linkcard" style="--delay:.40s" href="https://maps.app.goo.gl/wRBKXC4eaHs9rnwe9" target="_blank" rel="noopener">
+        <span class="linkcard__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10.5c0 6-8 11-8 11s-8-5-8-11a8 8 0 1 1 16 0z"/><circle cx="12" cy="10.5" r="2.6"/></svg>
+        </span>
+        <span class="linkcard__text">
+          <span class="linkcard__title">LOCATION</span>
+          <span class="linkcard__sub">79 Iran St, Dokki, Giza</span>
+        </span>
+        <span class="linkcard__end">
+          <svg class="linkcard__dots" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="12" cy="19" r="1.7"/></svg>
+          <svg class="linkcard__arrow" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+
+    </section>
+
+    <footer class="footer">
+      <img class="footer__mark" src="./assets/logo-cropped.png" alt="">
+      <p>&copy; 2026 <strong>EGAC Construction</strong> &mdash; All Rights Reserved</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
